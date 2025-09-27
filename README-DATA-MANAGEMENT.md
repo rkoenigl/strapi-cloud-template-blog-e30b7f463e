@@ -71,7 +71,7 @@ npm run strapi transfer -- --to https://your-live-site.com/admin --to-token YOUR
 ## 🚀 Current Status:
 
 - **SEO Plugin**: ✅ Working
-- **Sitemap Plugin**: ✅ Working (generates /sitemap.xml)
+
 - **Native Import/Export**: ✅ Working & Tested
 - **Redirect Management**: ✅ Content type ready for bulk operations
 

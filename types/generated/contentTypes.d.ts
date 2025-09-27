@@ -602,35 +602,6 @@ export interface ApiRedirectRedirect extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiSitemapSitemap extends Struct.SingleTypeSchema {
-  collectionName: 'sitemaps';
-  info: {
-    description: 'Generate XML sitemap for the website';
-    displayName: 'Sitemap';
-    pluralName: 'sitemaps';
-    singularName: 'sitemap';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    lastGenerated: Schema.Attribute.DateTime;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::sitemap.sitemap'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1268,7 +1239,6 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::redirect.redirect': ApiRedirectRedirect;
-      'api::sitemap.sitemap': ApiSitemapSitemap;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
