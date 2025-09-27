@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.15.0",
+    "@strapi/plugin-seo": "^2.0.8",
     "@strapi/plugin-users-permissions": "5.15.0",
     "@strapi/strapi": "5.15.0",
     "better-sqlite3": "11.3.0",
@@ -21,9 +22,10 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
+    "strapi-5-sitemap-plugin": "^1.0.7",
+    "strapi-csv-import-export": "^0.0.6",
     "styled-components": "^6.0.0"
   },
-  "devDependencies": {},
   "engines": {
     "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"

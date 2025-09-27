@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "sitemaps",
+  "info": {
+    "singularName": "sitemap",
+    "pluralName": "sitemaps",
+    "displayName": "Sitemap",
+    "description": "Generate XML sitemap for the website"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "lastGenerated": {
+      "type": "datetime",
+      "required": false
+    }
+  }
+}

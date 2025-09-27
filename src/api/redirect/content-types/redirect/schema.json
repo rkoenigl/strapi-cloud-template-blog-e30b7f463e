@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "redirects",
+  "info": {
+    "singularName": "redirect",
+    "pluralName": "redirects",
+    "displayName": "Redirect",
+    "description": "Manage URL redirects with bulk import/export capabilities"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fromPath": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 1,
+      "configurable": false
+    },
+    "toPath": {
+      "type": "string",
+      "required": true,
+      "minLength": 1,
+      "configurable": false
+    },
+    "statusCode": {
+      "type": "integer",
+      "required": true,
+      "default": 301,
+      "min": 300,
+      "max": 399,
+      "configurable": false
+    },
+    "description": {
+      "type": "text",
+      "configurable": false
+    },
+    "isActive": {
+      "type": "boolean",
+      "required": true,
+      "default": true,
+      "configurable": false
+    },
+    "priority": {
+      "type": "integer",
+      "required": true,
+      "default": 100,
+      "min": 1,
+      "max": 1000,
+      "configurable": false
+    }
+  }
+}
