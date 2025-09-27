@@ -39,7 +39,7 @@ export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
     description: '';
-    displayName: 'Seo';
+    displayName: 'SEO';
     icon: 'allergies';
     name: 'Seo';
   };

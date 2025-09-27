@@ -13,6 +13,7 @@ module.exports = {
     // 🔥 FULLY AUTOMATIC REDIRECT SYSTEM 🔥
     // Auto-detects ALL content types with slugs and creates redirects
     // Features: Loop prevention, chain resolution, self-reference blocking
+    // Configuration: Managed through Global Settings > Redirect URL Mappings
     
     // Register global lifecycle middleware for ALL content types
     strapi.db.lifecycles.subscribe(async (event) => {
@@ -135,12 +136,16 @@ module.exports = {
     // Smart redirect creation with chain resolution and loop prevention
     async function createAutoRedirect(model, oldSlug, newSlug) {
       try {
-        // Auto-generate URL pattern from content type name
-        const contentTypeName = model.uid.replace('api::', '').replace(/\..+$/, '');
-        const pluralName = model.info?.pluralName || contentTypeName + 's';
+        // Get frontend URL mappings from Global settings
+        const globalSettings = await strapi.entityService.findMany('api::global.global', { limit: 1 });
+        const redirectMappings = globalSettings[0]?.redirectUrlMappings || { article: 'blog' };
         
-        const oldPath = `/${pluralName}/${oldSlug}`;
-        const newPath = `/${pluralName}/${newSlug}`;
+        // Get frontend URL pattern from configuration
+        const contentTypeName = model.uid.replace('api::', '').replace(/\..+$/, '');
+        const frontendPath = redirectMappings[contentTypeName] || model.info?.pluralName || contentTypeName + 's';
+        
+        const oldPath = `/${frontendPath}/${oldSlug}`;
+        const newPath = `/${frontendPath}/${newSlug}`;
         
         // SMART REDIRECT LOGIC
         
