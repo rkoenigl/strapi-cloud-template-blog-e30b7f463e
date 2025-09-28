@@ -3,12 +3,4 @@ module.exports = () => ({
   seo: {
     enabled: true,
   },
-  // Import Export Plugin (Strapi 5) configuration
-  'strapi-import-export': {
-    enabled: true,
-    config: {
-      // Needed for generating absolute URLs in exported data if behind a reverse proxy / cloud
-  serverPublicHostname: process.env.PUBLIC_URL || 'https://trusty-dance-ed00d6b3f6.strapiapp.com/',
-    },
-  },
 });
